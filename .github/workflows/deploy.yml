@@ -38,6 +38,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate environment files
+        run: |
+          cat > src/environments/environment.ts << 'EOF'
+          export const environment = {
+            production: false,
+            valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+          };
+          EOF
+          cat > src/environments/environment.prod.ts << 'EOF'
+          export const environment = {
+            production: true,
+            valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+          };
+          EOF
+
       - name: Lint
         run: npm run lint --if-present
 
@@ -65,6 +82,23 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Generate environment files from secrets
+        run: |
+          cat > src/environments/environment.ts << 'EOF'
+          export const environment = {
+            production: false,
+            valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+          };
+          EOF
+          cat > src/environments/environment.prod.ts << 'EOF'
+          export const environment = {
+            production: true,
+            valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+          };
+          EOF
 
       - name: Build for production
         run: npm run build -- --base-href "/${{ github.event.repository.name }}/"
