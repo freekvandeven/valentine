@@ -1,0 +1,73 @@
+<div class="countdown-container">
+  <div class="hearts-bg">
+    <span class="floating-heart">💕</span>
+    <span class="floating-heart">💖</span>
+    <span class="floating-heart">💗</span>
+    <span class="floating-heart">💝</span>
+    <span class="floating-heart">❤️</span>
+    <span class="floating-heart">💘</span>
+    <span class="floating-heart">💓</span>
+    <span class="floating-heart">💞</span>
+  </div>
+
+  <div class="content">
+    @if (!isValentinesDay()) {
+      <h1 class="title">Counting down to our special day... 💕</h1>
+      
+      <div class="countdown-timer">
+        <div class="time-block">
+          <span class="time-value">{{ timeLeft().days }}</span>
+          <span class="time-label">Days</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value">{{ padZero(timeLeft().hours) }}</span>
+          <span class="time-label">Hours</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value">{{ padZero(timeLeft().minutes) }}</span>
+          <span class="time-label">Minutes</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value">{{ padZero(timeLeft().seconds) }}</span>
+          <span class="time-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="subtitle">Until Valentine's Day in Amsterdam 🌷</p>
+
+      <div class="love-note">
+        <p class="note-text">
+          {{ valentineName }}, I can't wait to spend this special day with you! 
+          Every second feels like an eternity... 💝
+        </p>
+        <p class="signature" *ngIf="senderName">
+          Forever yours,<br>
+          <span class="sender-name">{{ senderName }}</span> 💕
+        </p>
+      </div>
+    }
+
+    @if (isValentinesDay()) {
+      <div class="celebration">
+        <h1 class="celebration-title">🎉 Happy Valentine's Day! 🎉</h1>
+        <div class="hearts-burst">
+          💕💖💗💝❤️💘💓💞💕💖💗💝❤️💘💓💞
+        </div>
+        <p class="celebration-message">
+          {{ valentineName }}, today is OUR day! 💝
+        </p>
+        <p class="love-declaration">
+          I love you more than words can express! 
+          You make every day feel like Valentine's Day! 💕
+        </p>
+        <p class="signature" *ngIf="senderName">
+          All my love, forever and always,<br>
+          <span class="sender-name">{{ senderName }}</span> 💝
+        </p>
+      </div>
+    }
+  </div>
+</div>

@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./valentine/valentine.component').then(m => m.ValentineComponent)
   },
   {
+    path: 'countdown',
+    loadComponent: () => import('./countdown/countdown.component').then(m => m.CountdownComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

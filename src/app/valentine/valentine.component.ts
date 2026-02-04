@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -25,9 +26,15 @@ export class ValentineComponent {
   private confettiInstance: ReturnType<typeof import('canvas-confetti').create> | null = null;
   private escapeCount = 0;
 
+  constructor(private router: Router) {}
+
   onYesClick(): void {
     this.showResult.set(true);
     this.loadAndFireConfetti();
+    // Navigate to countdown after celebration
+    setTimeout(() => {
+      this.router.navigate(['/countdown']);
+    }, 3000);
   }
 
   onNoHover(event: MouseEvent): void {

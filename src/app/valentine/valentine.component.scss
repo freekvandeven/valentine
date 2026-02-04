@@ -219,37 +219,55 @@ $white: #fff;
 }
 
 .signature {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: $white;
   margin-top: 2rem;
   font-style: italic;
 }
 
 .sender-name {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: bold;
   font-style: normal;
 }
 
 // Responsive adjustments
 @media (max-width: 600px) {
+  .question-zone {
+    padding: 1rem;
+  }
+  
   .buttons-container {
-    height: 300px;
-  }
-  
-  .yes-btn {
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .no-btn {
-    left: 50% !important;
-    top: 70% !important;
+    height: auto;
+    min-height: 100px;
   }
   
   .btn {
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     font-size: 1.1rem;
+  }
+  
+  .hint {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .result-zone {
+    padding: 1rem;
+  }
+  
+  .celebration {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .question {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
   }
 }
