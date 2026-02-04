@@ -182,10 +182,13 @@ export class ValentineComponent {
   }
 
   private fullScreenConfetti(): void {
+    if (!this.confettiInstance) return;
+    
     const end = Date.now() + 1600;
+    const confetti = this.confettiInstance;
 
     const frame = () => {
-      this.confettiInstance({
+      confetti({
         particleCount: 12,
         spread: 90,
         startVelocity: 45,
@@ -203,7 +206,7 @@ export class ValentineComponent {
 
     // Big burst after 300ms
     setTimeout(() => {
-      this.confettiInstance({
+      confetti({
         particleCount: 300,
         spread: 140,
         startVelocity: 60,
