@@ -26,6 +26,7 @@ export interface PageConfig {
 export const PAGE_FLOW: PageConfig[] = [
   { id: '', name: 'Question', enabled: true },
   { id: 'memory', name: 'Memory Game', enabled: true },
+  { id: 'love-letter', name: 'Love Letter', enabled: true },
   { id: 'countdown', name: 'Countdown', enabled: true },
 ];
 

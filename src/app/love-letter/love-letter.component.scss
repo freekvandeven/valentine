@@ -1,0 +1,311 @@
+// Valentine Theme Colors
+$pink-light: #ffb6c1;
+$pink: #ff69b4;
+$pink-dark: #ff1493;
+$red: #ff6b6b;
+$red-dark: #ee5a5a;
+$gold: #ffd700;
+$white: #fff;
+$cream: #fef6e4;
+
+.love-letter-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, $pink-light 0%, $pink 50%, $pink-dark 100%);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', 'Comic Sans MS', cursive, sans-serif;
+}
+
+// Floating Hearts Background
+.hearts-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+  
+  &:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; }
+  &:nth-child(2) { left: 92%; top: 20%; animation-delay: 1s; }
+  &:nth-child(3) { left: 10%; top: 85%; animation-delay: 2s; }
+  &:nth-child(4) { left: 88%; top: 80%; animation-delay: 3s; }
+  &:nth-child(5) { left: 50%; top: 5%; animation-delay: 4s; }
+  &:nth-child(6) { left: 30%; top: 90%; animation-delay: 5s; }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+// Letter Zone
+.letter-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+// Envelope Container
+.envelope-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: $white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+// Envelope
+.envelope {
+  position: relative;
+  width: clamp(200px, 50vw, 280px);
+  height: clamp(140px, 35vw, 180px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    
+    .envelope-flap {
+      transform: rotateX(-30deg);
+    }
+  }
+}
+
+.envelope-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f5e6d3 0%, $cream 100%);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, #e8d5c4, transparent);
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+.envelope-heart {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  z-index: 1;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(135deg, #e8d5c4 0%, #f5e6d3 100%);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Letter Container
+.letter-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter {
+  background: linear-gradient(135deg, $cream 0%, #fff 100%);
+  border-radius: 8px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $pink, $red, $pink);
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+.letter-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba($pink, 0.3);
+  padding-bottom: 1rem;
+}
+
+.dear {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: $pink-dark;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.letter-body {
+  min-height: 150px;
+}
+
+.letter-paragraph {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba($pink, 0.3);
+  text-align: right;
+  animation: fadeIn 0.8s ease;
+}
+
+.forever {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.signature {
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  color: $pink-dark;
+  font-weight: bold;
+  font-family: 'Brush Script MT', cursive, sans-serif;
+}
+
+.signature-heart {
+  font-size: 1.5rem;
+  display: block;
+  margin-top: 0.5rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+// Continue Button
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.continue-btn {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, $red 0%, $red-dark 100%);
+  color: $white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  animation: fadeIn 0.5s ease;
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .letter-zone {
+    padding: 1rem;
+  }
+  
+  .letter {
+    padding: 1.2rem;
+  }
+  
+  .letter-paragraph {
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+}

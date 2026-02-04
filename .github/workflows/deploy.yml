@@ -44,14 +44,16 @@ jobs:
           export const environment = {
             production: false,
             valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
-            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}',
+            loveLetterParagraphs: ${{ secrets.LOVE_LETTER_PARAGRAPHS || '[]' }}
           };
           EOF
           cat > src/environments/environment.prod.ts << 'EOF'
           export const environment = {
             production: true,
             valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
-            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}',
+            loveLetterParagraphs: ${{ secrets.LOVE_LETTER_PARAGRAPHS || '[]' }}
           };
           EOF
 
@@ -89,14 +91,16 @@ jobs:
           export const environment = {
             production: false,
             valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
-            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}',
+            loveLetterParagraphs: ${{ secrets.LOVE_LETTER_PARAGRAPHS || '[]' }}
           };
           EOF
           cat > src/environments/environment.prod.ts << 'EOF'
           export const environment = {
             production: true,
             valentineName: '${{ secrets.VALENTINE_NAME || 'My Love' }}',
-            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}'
+            senderName: '${{ secrets.SENDER_NAME || 'Your Secret Admirer' }}',
+            loveLetterParagraphs: ${{ secrets.LOVE_LETTER_PARAGRAPHS || '[]' }}
           };
           EOF
 

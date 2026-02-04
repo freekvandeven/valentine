@@ -1,0 +1,61 @@
+<div class="love-letter-container">
+  <!-- Floating Hearts Background -->
+  <div class="hearts-bg">
+    <span class="floating-heart">💕</span>
+    <span class="floating-heart">💖</span>
+    <span class="floating-heart">💝</span>
+    <span class="floating-heart">💗</span>
+    <span class="floating-heart">🌹</span>
+    <span class="floating-heart">💌</span>
+  </div>
+
+  <div class="letter-zone">
+    @if (!isEnvelopeOpen()) {
+      <!-- Envelope -->
+      <div class="envelope-container">
+        <h1 class="title">A Letter For You 💌</h1>
+        <p class="subtitle">{{ valentineName }}, you have mail!</p>
+        
+        <button class="envelope" (click)="openEnvelope()">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <span class="envelope-heart">💕</span>
+          </div>
+        </button>
+        
+        <p class="hint">Click to open</p>
+      </div>
+    } @else {
+      <!-- Letter Content -->
+      <div class="letter-container" [class.visible]="showLetter()">
+        <div class="letter">
+          <div class="letter-header">
+            <span class="dear">My Dearest {{ valentineName }},</span>
+          </div>
+          
+          <div class="letter-body">
+            @for (paragraph of loveLetterParagraphs; track paragraph; let i = $index) {
+              <p class="letter-paragraph" [class.revealed]="i < revealedCount()">
+                {{ paragraph }}
+              </p>
+            }
+          </div>
+          
+          @if (isFullyRevealed()) {
+            <div class="letter-footer">
+              <p class="forever">Forever Yours,</p>
+              <p class="signature">{{ senderName }}</p>
+              <span class="signature-heart">💕</span>
+            </div>
+          }
+        </div>
+        
+        @if (isFullyRevealed() && !isLastInFlow) {
+          <button class="btn continue-btn" (click)="continueToNext()">
+            Continue 💕
+          </button>
+        }
+      </div>
+    }
+  </div>
+</div>
