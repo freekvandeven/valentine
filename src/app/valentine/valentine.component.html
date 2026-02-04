@@ -1,0 +1,66 @@
+<div class="valentine-container">
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- Question Zone -->
+  @if (!showResult()) {
+    <div class="question-zone" #zone>
+      <div class="hearts-bg">
+        <span class="floating-heart">💕</span>
+        <span class="floating-heart">💖</span>
+        <span class="floating-heart">💗</span>
+        <span class="floating-heart">💝</span>
+        <span class="floating-heart">❤️</span>
+      </div>
+
+      <h1 class="question">
+        {{ valentineName }}, will you be my Valentine? 💝
+      </h1>
+
+      <p class="hint">"No" seems a bit shy 😈</p>
+
+      <div class="buttons-container">
+        <button 
+          #yesBtn
+          class="btn yes-btn"
+          [style.transform]="'scale(' + yesScale() + ')'"
+          (click)="onYesClick()">
+          Yes! 💖
+        </button>
+      </div>
+
+      <!-- No button floats freely in the viewport -->
+      <button 
+        #noBtn
+        class="btn no-btn"
+        [style.left]="noBtnStyle().left"
+        [style.top]="noBtnStyle().top"
+        (mouseenter)="onNoHover($event)"
+        (click)="onNoClick($event)">
+        No
+      </button>
+    </div>
+  }
+
+  <!-- Result Zone -->
+  @if (showResult()) {
+    <div class="result-zone">
+      <div class="celebration">
+        <h1 class="yay">YAY! 🎉</h1>
+        <div class="hearts-explosion">
+          💕💖💗💝❤️💕💖💗💝❤️
+        </div>
+        <p class="message">
+          I knew you'd say yes! 😍
+        </p>
+        <p class="love-message">
+          You've made me the happiest person! 💕
+        </p>
+        <p class="signature" *ngIf="senderName">
+          With all my love,<br>
+          <span class="sender-name">{{ senderName }}</span> 💝
+        </p>
+      </div>
+    </div>
+  }
+</div>
