@@ -21,7 +21,8 @@ export class ValentineComponent {
   yesScale = signal(1);
   noBtnStyle = signal({ left: 'calc(50% + 80px)', top: '50%' });
   
-  private confettiInstance: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private confettiInstance: ReturnType<typeof import('canvas-confetti').create> | null = null;
   private escapeCount = 0;
 
   onYesClick(): void {
@@ -62,7 +63,7 @@ export class ValentineComponent {
     }
   }
 
-  private moveNoButton(pointerX: number, pointerY: number): void {
+  private moveNoButton(_pointerX: number, _pointerY: number): void {
     // Prevent re-triggering during animation
     this.isAnimating = true;
     setTimeout(() => this.isAnimating = false, this.animationCooldown);
