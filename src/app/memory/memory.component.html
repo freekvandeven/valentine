@@ -1,0 +1,50 @@
+<div class="memory-container">
+  <!-- Floating Hearts Background -->
+  <div class="hearts-bg">
+    <span class="floating-heart">💕</span>
+    <span class="floating-heart">💖</span>
+    <span class="floating-heart">💝</span>
+    <span class="floating-heart">💗</span>
+    <span class="floating-heart">🌹</span>
+  </div>
+
+  <div class="game-zone">
+    <h1 class="title">Memory Game 💝</h1>
+    <p class="subtitle">Find all the matching pairs, {{ valentineName }}!</p>
+    
+    <div class="stats">
+      <span class="stat">Moves: {{ moves() }}</span>
+      <span class="stat">Pairs: {{ matchedPairs() }}/{{ totalPairs() }}</span>
+    </div>
+
+    <div class="card-grid">
+      @for (card of cards(); track card.id) {
+        <button 
+          class="card" 
+          [class.flipped]="card.isFlipped || card.isMatched"
+          [class.matched]="card.isMatched"
+          (click)="flipCard(card)"
+          [disabled]="card.isMatched"
+        >
+          <div class="card-inner">
+            <div class="card-front">💌</div>
+            <div class="card-back">{{ card.emoji }}</div>
+          </div>
+        </button>
+      }
+    </div>
+
+    @if (isGameComplete()) {
+      <div class="completion-message">
+        <h2 class="congrats">🎉 You did it! 🎉</h2>
+        <p class="completion-text">You found all the pairs in {{ moves() }} moves!</p>
+        <div class="completion-buttons">
+          <button class="btn play-again-btn" (click)="resetGame()">Play Again</button>
+          <button class="btn continue-btn" (click)="continueToNext()">Continue 💕</button>
+        </div>
+      </div>
+    } @else {
+      <button class="btn reset-btn" (click)="resetGame()">Reset Game</button>
+    }
+  </div>
+</div>

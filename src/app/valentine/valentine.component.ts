@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild, signal } from '@angular
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { getNextPage } from '../config/page-flow.config';
 
 @Component({
   selector: 'app-valentine',
@@ -31,9 +32,12 @@ export class ValentineComponent {
   onYesClick(): void {
     this.showResult.set(true);
     this.loadAndFireConfetti();
-    // Navigate to countdown after celebration
+    // Navigate to next page after celebration
     setTimeout(() => {
-      this.router.navigate(['/countdown']);
+      const nextPage = getNextPage('');
+      if (nextPage) {
+        this.router.navigate(['/' + nextPage.id]);
+      }
     }, 3000);
   }
 
