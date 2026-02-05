@@ -1,4 +1,4 @@
-<div class="progress-container">
+<div class="progress-container" [class.dev-mode]="isDevMode">
   <div class="progress-bar">
     <div class="progress-fill" [style.width.%]="percentage"></div>
   </div>
@@ -10,6 +10,9 @@
         [class.completed]="i < currentIndex"
         [class.current]="i === currentIndex"
         [class.upcoming]="i > currentIndex"
+        [class.clickable]="isDevMode"
+        (click)="navigateToStep(page)"
+        [attr.title]="isDevMode ? 'Dev: Click to skip to ' + page.name : null"
       >
         <div class="step-icon">
           @if (i < currentIndex) {
@@ -22,4 +25,8 @@
       </div>
     }
   </div>
+  
+  @if (isDevMode) {
+    <div class="dev-indicator">🛠️ DEV</div>
+  }
 </div>

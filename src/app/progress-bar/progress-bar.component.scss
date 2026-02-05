@@ -163,3 +163,31 @@ $white: #fff;
     font-size: 12px;
   }
 }
+
+// Dev mode styles
+.step.clickable {
+  cursor: pointer;
+  
+  &:hover {
+    .step-icon {
+      transform: scale(1.15);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+    
+    .step-name {
+      opacity: 1;
+    }
+  }
+}
+
+.dev-indicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.65rem;
+  background: rgba(255, 200, 0, 0.9);
+  color: #333;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
