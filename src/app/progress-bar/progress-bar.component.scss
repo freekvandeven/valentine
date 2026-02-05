@@ -129,6 +129,20 @@ $white: #fff;
   }
 }
 
+// Mystery steps (production mode - unreached steps)
+.step.mystery {
+  .step-icon {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+  }
+  
+  .mystery-icon {
+    font-weight: bold;
+    font-size: clamp(16px, 5vw, 20px);
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
 // Responsive adjustments
 @media (max-width: 480px) {
   .progress-container {

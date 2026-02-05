@@ -10,14 +10,19 @@
         [class.completed]="i < currentIndex"
         [class.current]="i === currentIndex"
         [class.upcoming]="i > currentIndex"
+        [class.mystery]="!isDevMode && i > currentIndex"
         [class.clickable]="isDevMode"
         (click)="navigateToStep(page)"
         [attr.title]="isDevMode ? 'Dev: Click to skip to ' + page.name : null"
       >
-        <span class="step-name">{{ page.name }}</span>
+        @if (isDevMode || i <= currentIndex) {
+          <span class="step-name">{{ page.name }}</span>
+        }
         <div class="step-icon">
           @if (i < currentIndex) {
             <span class="checkmark">✓</span>
+          } @else if (!isDevMode && i > currentIndex) {
+            <span class="mystery-icon">?</span>
           } @else {
             <span class="emoji">{{ page.icon }}</span>
           }
