@@ -6,5 +6,7 @@ export const environment = {
   senderName: 'Your Name',
   // 💌 Love letter paragraphs (each string is a paragraph)
   // Leave empty array [] to use default romantic messages
-  loveLetterParagraphs: [] as string[]
+  loveLetterParagraphs: [] as string[],
+  // 🌐 Default language: 'en' (English), 'nl' (Dutch), 'zh' (Chinese Simplified)
+  defaultLanguage: 'en'
 };

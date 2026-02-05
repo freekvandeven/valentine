@@ -1,0 +1,57 @@
+{
+  "common": {
+    "continue": "Doorgaan",
+    "playAgain": "Opnieuw spelen",
+    "reset": "Opnieuw starten",
+    "clickToOpen": "Klik om te openen"
+  },
+  "progressBar": {
+    "home": "Vraag",
+    "memory": "Memory Spel",
+    "love-letter": "Liefdesbrief",
+    "countdown": "Aftellen",
+    "devSkipTo": "Dev: Klik om te springen naar"
+  },
+  "valentine": {
+    "question": "Wil jij mijn Valentijn zijn, {{name}}?",
+    "hint": "(Probeer op Nee te klikken... als het lukt 😏)",
+    "yay": "JOEPIE!!! 🎉",
+    "heartsExplosion": "💕💖💗💝❤️💘💓💞",
+    "message": "Ik wist dat je ja zou zeggen!",
+    "loveMessage1": "Je maakt me zo gelukkig!",
+    "loveMessage2": "Ik kan niet wachten om het met jou te vieren!",
+    "signature": "Met al mijn liefde,",
+    "yes": "Ja! 💕",
+    "no": "Nee"
+  },
+  "memory": {
+    "title": "Memory spel 💝",
+    "subtitle": "Vind alle paren, {{name}}!",
+    "moves": "Zetten",
+    "pairs": "Paren",
+    "congrats": "🎉 Gelukt! 🎉",
+    "completionText": "Je vond alle paren in {{moves}} zetten!"
+  },
+  "loveLetter": {
+    "title": "Een brief voor jou 💌",
+    "youHaveMail": "{{name}}, je hebt post!",
+    "dearest": "Mijn allerliefste {{name}},",
+    "foreverYours": "Voor altijd de jouwe,",
+    "defaultParagraph1": "Elk moment met jou voelt als een droom die uitkomt.",
+    "defaultParagraph2": "Jouw glimlach verlicht mijn hele wereld.",
+    "defaultParagraph3": "Ik word elke dag meer en meer verliefd op je.",
+    "defaultParagraph4": "Jij bent de meest geweldige persoon die ik ooit heb ontmoet.",
+    "defaultParagraph5": "Mijn hart klopt alleen voor jou."
+  },
+  "countdown": {
+    "title": "Aftellen naar onze speciale dag... 💕",
+    "days": "Dagen",
+    "hours": "Uren",
+    "minutes": "Minuten",
+    "seconds": "Seconden",
+    "celebration": "🎉 Fijne Valentijnsdag! 🎉",
+    "celebrationMessage": "Vandaag is onze speciale dag, {{name}}!",
+    "loveMessage": "Ik hou van jou met heel mijn hart! 💕",
+    "signature": "Voor altijd de jouwe,"
+  }
+}

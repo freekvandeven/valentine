@@ -1,0 +1,94 @@
+$white: #fff;
+$pink-dark: #ff1493;
+
+.language-switcher {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1001;
+}
+
+.current-lang {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .flag {
+    font-size: 1.2rem;
+  }
+  
+  .arrow {
+    font-size: 0.6rem;
+    color: $white;
+    transition: transform 0.2s ease;
+  }
+  
+  &.open .arrow {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  
+  &:hover {
+    background: rgba($pink-dark, 0.1);
+  }
+  
+  &.active {
+    background: rgba($pink-dark, 0.2);
+  }
+  
+  .flag {
+    font-size: 1.2rem;
+  }
+  
+  .name {
+    font-size: 0.9rem;
+    color: #333;
+    white-space: nowrap;
+  }
+}

@@ -16,7 +16,7 @@
         [attr.title]="isDevMode ? 'Dev: Click to skip to ' + page.name : null"
       >
         @if (isDevMode || i <= currentIndex) {
-          <span class="step-name">{{ page.name }}</span>
+          <span class="step-name">{{ 'progressBar.' + (page.id || 'home') | translate }}</span>
         }
         <div class="step-icon">
           @if (i < currentIndex) {

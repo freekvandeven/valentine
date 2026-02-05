@@ -11,12 +11,12 @@
   </div>
 
   <div class="game-zone">
-    <h1 class="title">Memory Game 💝</h1>
-    <p class="subtitle">Find all the matching pairs, {{ valentineName }}!</p>
+    <h1 class="title">{{ 'memory.title' | translate }}</h1>
+    <p class="subtitle">{{ 'memory.subtitle' | translate: { name: valentineName } }}</p>
     
     <div class="stats">
-      <span class="stat">Moves: {{ moves() }}</span>
-      <span class="stat">Pairs: {{ matchedPairs() }}/{{ totalPairs() }}</span>
+      <span class="stat">{{ 'memory.moves' | translate }}: {{ moves() }}</span>
+      <span class="stat">{{ 'memory.pairs' | translate }}: {{ matchedPairs() }}/{{ totalPairs() }}</span>
     </div>
 
     <div class="card-grid">
@@ -38,15 +38,15 @@
 
     @if (isGameComplete()) {
       <div class="completion-message">
-        <h2 class="congrats">🎉 You did it! 🎉</h2>
-        <p class="completion-text">You found all the pairs in {{ moves() }} moves!</p>
+        <h2 class="congrats">{{ 'memory.congrats' | translate }}</h2>
+        <p class="completion-text">{{ 'memory.completionText' | translate: { moves: moves() } }}</p>
         <div class="completion-buttons">
-          <button class="btn play-again-btn" (click)="resetGame()">Play Again</button>
-          <button class="btn continue-btn" (click)="continueToNext()">Continue 💕</button>
+          <button class="btn play-again-btn" (click)="resetGame()">{{ 'common.playAgain' | translate }}</button>
+          <button class="btn continue-btn" (click)="continueToNext()">{{ 'common.continue' | translate }} 💕</button>
         </div>
       </div>
     } @else {
-      <button class="btn reset-btn" (click)="resetGame()">Reset Game</button>
+      <button class="btn reset-btn" (click)="resetGame()">{{ 'common.reset' | translate }}</button>
     }
   </div>
 </div>

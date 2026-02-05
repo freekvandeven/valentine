@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { getEnabledPages, getProgressInfo, PageConfig } from '../config/page-flow.config';
 import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-progress-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './progress-bar.component.html',
   styleUrl: './progress-bar.component.scss'
 })

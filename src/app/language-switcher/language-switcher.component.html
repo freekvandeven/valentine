@@ -1,0 +1,21 @@
+<div class="language-switcher" (clickOutside)="closeDropdown()">
+  <button class="current-lang" (click)="toggleDropdown()" [class.open]="isOpen">
+    <span class="flag">{{ currentLanguage.flag }}</span>
+    <span class="arrow">▼</span>
+  </button>
+  
+  @if (isOpen) {
+    <div class="dropdown">
+      @for (lang of languages; track lang.code) {
+        <button 
+          class="lang-option" 
+          [class.active]="lang.code === currentLanguage.code"
+          (click)="selectLanguage(lang)"
+        >
+          <span class="flag">{{ lang.flag }}</span>
+          <span class="name">{{ lang.name }}</span>
+        </button>
+      }
+    </div>
+  }
+</div>

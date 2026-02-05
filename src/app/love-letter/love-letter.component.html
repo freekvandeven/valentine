@@ -15,8 +15,8 @@
     @if (!isEnvelopeOpen()) {
       <!-- Envelope -->
       <div class="envelope-container">
-        <h1 class="title">A Letter For You 💌</h1>
-        <p class="subtitle">{{ valentineName }}, you have mail!</p>
+        <h1 class="title">{{ 'loveLetter.title' | translate }}</h1>
+        <p class="subtitle">{{ 'loveLetter.youHaveMail' | translate: { name: valentineName } }}</p>
         
         <button class="envelope" (click)="openEnvelope()">
           <div class="envelope-flap"></div>
@@ -25,14 +25,14 @@
           </div>
         </button>
         
-        <p class="hint">Click to open</p>
+        <p class="hint">{{ 'common.clickToOpen' | translate }}</p>
       </div>
     } @else {
       <!-- Letter Content -->
       <div class="letter-container" [class.visible]="showLetter()">
         <div class="letter">
           <div class="letter-header">
-            <span class="dear">My Dearest {{ valentineName }},</span>
+            <span class="dear">{{ 'loveLetter.dearest' | translate: { name: valentineName } }}</span>
           </div>
           
           <div class="letter-body">
@@ -45,7 +45,7 @@
           
           @if (isFullyRevealed()) {
             <div class="letter-footer">
-              <p class="forever">Forever Yours,</p>
+              <p class="forever">{{ 'loveLetter.foreverYours' | translate }}</p>
               <p class="signature">{{ senderName }}</p>
               <span class="signature-heart">💕</span>
             </div>
@@ -54,7 +54,7 @@
         
         @if (isFullyRevealed() && !isLastInFlow) {
           <button class="btn continue-btn" (click)="continueToNext()">
-            Continue 💕
+            {{ 'common.continue' | translate }} 💕
           </button>
         }
       </div>

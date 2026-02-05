@@ -1,6 +1,7 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { environment } from '../../environments/environment';
 import { getNextPage } from '../config/page-flow.config';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
@@ -15,7 +16,7 @@ interface Card {
 @Component({
   selector: 'app-memory',
   standalone: true,
-  imports: [CommonModule, ProgressBarComponent],
+  imports: [CommonModule, ProgressBarComponent, TranslateModule],
   templateUrl: './memory.component.html',
   styleUrl: './memory.component.scss'
 })

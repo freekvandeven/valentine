@@ -1,6 +1,7 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '../../environments/environment';
 import { getNextPage, isLastPage } from '../config/page-flow.config';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
@@ -17,25 +18,16 @@ const env = environment as ExtendedEnvironment;
 @Component({
   selector: 'app-love-letter',
   standalone: true,
-  imports: [CommonModule, ProgressBarComponent],
+  imports: [CommonModule, ProgressBarComponent, TranslateModule],
   templateUrl: './love-letter.component.html',
   styleUrl: './love-letter.component.scss'
 })
-export class LoveLetterComponent {
+export class LoveLetterComponent implements OnInit {
   valentineName = env.valentineName;
   senderName = env.senderName;
   
-  // Love letter content from environment
-  // Use configured paragraphs or fall back to defaults
-  loveLetterParagraphs = (env.loveLetterParagraphs && env.loveLetterParagraphs.length > 0)
-    ? env.loveLetterParagraphs
-    : [
-        'Every moment with you feels like a dream come true.',
-        'Your smile lights up my entire world.',
-        'I fall in love with you more and more each day.',
-        'You are the most amazing person I have ever known.',
-        'My heart beats only for you.'
-      ];
+  // Love letter content from environment or translated defaults
+  loveLetterParagraphs: string[] = [];
   
   // Track which paragraphs have been revealed
   revealedCount = signal(0);
@@ -46,7 +38,30 @@ export class LoveLetterComponent {
   isEnvelopeOpen = signal(false);
   showLetter = signal(false);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    // Use configured paragraphs or fall back to translated defaults
+    if (env.loveLetterParagraphs && env.loveLetterParagraphs.length > 0) {
+      this.loveLetterParagraphs = env.loveLetterParagraphs;
+    } else {
+      this.translate.get([
+        'loveLetter.defaultParagraph1',
+        'loveLetter.defaultParagraph2',
+        'loveLetter.defaultParagraph3',
+        'loveLetter.defaultParagraph4',
+        'loveLetter.defaultParagraph5'
+      ]).subscribe(translations => {
+        this.loveLetterParagraphs = [
+          translations['loveLetter.defaultParagraph1'],
+          translations['loveLetter.defaultParagraph2'],
+          translations['loveLetter.defaultParagraph3'],
+          translations['loveLetter.defaultParagraph4'],
+          translations['loveLetter.defaultParagraph5']
+        ];
+      });
+    }
+  }
 
   openEnvelope(): void {
     this.isEnvelopeOpen.set(true);

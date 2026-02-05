@@ -1,0 +1,57 @@
+{
+  "common": {
+    "continue": "Continue",
+    "playAgain": "Play Again",
+    "reset": "Reset Game",
+    "clickToOpen": "Click to open"
+  },
+  "progressBar": {
+    "home": "Question",
+    "memory": "Memory Game",
+    "love-letter": "Love Letter",
+    "countdown": "Countdown",
+    "devSkipTo": "Dev: Click to skip to"
+  },
+  "valentine": {
+    "question": "Will you be my Valentine, {{name}}?",
+    "hint": "(Try clicking No... if you can 😏)",
+    "yay": "YAY!!! 🎉",
+    "heartsExplosion": "💕💖💗💝❤️💘💓💞",
+    "message": "I knew you'd say yes!",
+    "loveMessage1": "You just made me the happiest person!",
+    "loveMessage2": "Can't wait to celebrate with you!",
+    "signature": "With all my love,",
+    "yes": "Yes! 💕",
+    "no": "No"
+  },
+  "memory": {
+    "title": "Memory Game 💝",
+    "subtitle": "Find all the matching pairs, {{name}}!",
+    "moves": "Moves",
+    "pairs": "Pairs",
+    "congrats": "🎉 You did it! 🎉",
+    "completionText": "You found all the pairs in {{moves}} moves!"
+  },
+  "loveLetter": {
+    "title": "A Letter For You 💌",
+    "youHaveMail": "{{name}}, you have mail!",
+    "dearest": "My Dearest {{name}},",
+    "foreverYours": "Forever Yours,",
+    "defaultParagraph1": "Every moment with you feels like a dream come true.",
+    "defaultParagraph2": "Your smile lights up my entire world.",
+    "defaultParagraph3": "I fall in love with you more and more each day.",
+    "defaultParagraph4": "You are the most amazing person I have ever known.",
+    "defaultParagraph5": "My heart beats only for you."
+  },
+  "countdown": {
+    "title": "Counting down to our special day... 💕",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "celebration": "🎉 Happy Valentine's Day! 🎉",
+    "celebrationMessage": "Today is our special day, {{name}}!",
+    "loveMessage": "I love you with all my heart! 💕",
+    "signature": "Forever yours,"
+  }
+}
