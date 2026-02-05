@@ -1,7 +1,7 @@
 <div class="progress-container" [class.dev-mode]="isDevMode">
-  <div class="progress-bar">
-    <div class="progress-fill" [style.width.%]="percentage"></div>
-  </div>
+  @if (isDevMode) {
+    <div class="dev-indicator">🛠️ DEV</div>
+  }
   
   <div class="progress-steps">
     @for (page of pages; track page.id; let i = $index) {
@@ -14,6 +14,7 @@
         (click)="navigateToStep(page)"
         [attr.title]="isDevMode ? 'Dev: Click to skip to ' + page.name : null"
       >
+        <span class="step-name">{{ page.name }}</span>
         <div class="step-icon">
           @if (i < currentIndex) {
             <span class="checkmark">✓</span>
@@ -21,12 +22,11 @@
             <span class="emoji">{{ page.icon }}</span>
           }
         </div>
-        <span class="step-name">{{ page.name }}</span>
       </div>
     }
   </div>
   
-  @if (isDevMode) {
-    <div class="dev-indicator">🛠️ DEV</div>
-  }
+  <div class="progress-bar">
+    <div class="progress-fill" [style.width.%]="percentage"></div>
+  </div>
 </div>
