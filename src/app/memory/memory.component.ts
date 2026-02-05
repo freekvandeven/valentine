@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { getNextPage } from '../config/page-flow.config';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 interface Card {
   id: number;
@@ -14,7 +15,7 @@ interface Card {
 @Component({
   selector: 'app-memory',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProgressBarComponent],
   templateUrl: './memory.component.html',
   styleUrl: './memory.component.scss'
 })

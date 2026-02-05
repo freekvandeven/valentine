@@ -1,0 +1,25 @@
+<div class="progress-container">
+  <div class="progress-bar">
+    <div class="progress-fill" [style.width.%]="percentage"></div>
+  </div>
+  
+  <div class="progress-steps">
+    @for (page of pages; track page.id; let i = $index) {
+      <div 
+        class="step" 
+        [class.completed]="i < currentIndex"
+        [class.current]="i === currentIndex"
+        [class.upcoming]="i > currentIndex"
+      >
+        <div class="step-icon">
+          @if (i < currentIndex) {
+            <span class="checkmark">✓</span>
+          } @else {
+            <span class="emoji">{{ page.icon }}</span>
+          }
+        </div>
+        <span class="step-name">{{ page.name }}</span>
+      </div>
+    }
+  </div>
+</div>

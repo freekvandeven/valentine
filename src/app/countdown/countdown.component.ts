@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 interface TimeLeft {
   days: number;
@@ -13,7 +14,7 @@ interface TimeLeft {
 @Component({
   selector: 'app-countdown',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProgressBarComponent],
   templateUrl: './countdown.component.html',
   styleUrl: './countdown.component.scss'
 })

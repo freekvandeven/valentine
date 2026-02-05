@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { getNextPage, isLastPage } from '../config/page-flow.config';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 // Extended environment type for love letter
 interface ExtendedEnvironment {
@@ -16,7 +17,7 @@ const env = environment as ExtendedEnvironment;
 @Component({
   selector: 'app-love-letter',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProgressBarComponent],
   templateUrl: './love-letter.component.html',
   styleUrl: './love-letter.component.scss'
 })
