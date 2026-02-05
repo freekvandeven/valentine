@@ -12,7 +12,11 @@
         [class.upcoming]="i > currentIndex"
         [class.mystery]="!isDevMode && i > currentIndex"
         [class.clickable]="isDevMode"
+        [attr.tabindex]="isDevMode ? 0 : null"
+        [attr.role]="isDevMode ? 'button' : null"
         (click)="navigateToStep(page)"
+        (keydown.enter)="navigateToStep(page)"
+        (keydown.space)="navigateToStep(page)"
         [attr.title]="isDevMode ? 'Dev: Click to skip to ' + page.name : null"
       >
         @if (isDevMode || i <= currentIndex) {
