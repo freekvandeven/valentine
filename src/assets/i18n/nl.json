@@ -45,13 +45,15 @@
   },
   "countdown": {
     "title": "Aftellen naar onze speciale dag... 💕",
+    "subtitle": "Tot Valentijnsdag in Amsterdam 🌷",
     "days": "Dagen",
     "hours": "Uren",
     "minutes": "Minuten",
     "seconds": "Seconden",
-    "celebration": "🎉 Fijne Valentijnsdag! 🎉",
-    "celebrationMessage": "Vandaag is onze speciale dag, {{name}}!",
-    "loveMessage": "Ik hou van jou met heel mijn hart! 💕",
-    "signature": "Voor altijd de jouwe,"
+    "loveNote": "{{name}}, ik kan niet wachten om deze speciale dag met jou door te brengen! Elke seconde voelt als een eeuwigheid... 💝",
+    "happyValentines": "Fijne Valentijnsdag!",
+    "ourDay": "{{name}}, vandaag is ONZE dag! 💝",
+    "loveDeclaration": "Ik hou meer van je dan woorden kunnen beschrijven! Jij maakt elke dag als Valentijnsdag! 💕",
+    "allMyLove": "Met al mijn liefde, voor altijd,"
   }
 }

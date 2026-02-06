@@ -45,13 +45,15 @@
   },
   "countdown": {
     "title": "Counting down to our special day... 💕",
+    "subtitle": "Until Valentine's Day in Amsterdam 🌷",
     "days": "Days",
     "hours": "Hours",
     "minutes": "Minutes",
     "seconds": "Seconds",
-    "celebration": "🎉 Happy Valentine's Day! 🎉",
-    "celebrationMessage": "Today is our special day, {{name}}!",
-    "loveMessage": "I love you with all my heart! 💕",
-    "signature": "Forever yours,"
+    "loveNote": "{{name}}, I can't wait to spend this special day with you! Every second feels like an eternity... 💝",
+    "happyValentines": "Happy Valentine's Day!",
+    "ourDay": "{{name}}, today is OUR day! 💝",
+    "loveDeclaration": "I love you more than words can express! You make every day feel like Valentine's Day! 💕",
+    "allMyLove": "All my love, forever and always,"
   }
 }
