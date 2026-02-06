@@ -5,12 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { environment } from '../../environments/environment';
 import { getNextPage } from '../config/page-flow.config';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-valentine',
   standalone: true,
-  imports: [CommonModule, ProgressBarComponent, TranslateModule, LanguageSwitcherComponent],
+  imports: [CommonModule, ProgressBarComponent, TranslateModule],
   templateUrl: './valentine.component.html',
   styleUrl: './valentine.component.scss'
 })
